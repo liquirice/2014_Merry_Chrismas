@@ -30,7 +30,7 @@ function JBCountDown(settings) {
                 ctx.shadowColor = glob.daysGlow;
                 
                 ctx.arc(94,94,70, deg(0), deg((360/glob.total)*(glob.total - glob.days)));
-                ctx.lineWidth = 10;
+                ctx.lineWidth = 13;
                 ctx.stroke();
                 $(".clock_days .val").text(glob.days);
             },
@@ -48,7 +48,7 @@ function JBCountDown(settings) {
                 ctx.shadowColor = glob.hoursGlow;
                 
                 ctx.arc(94,94,70, deg(0), deg(15*glob.hours));
-                ctx.lineWidth = 10;
+                ctx.lineWidth = 13;
                 ctx.stroke();
                 $(".clock_hours .val").text(24 - glob.hours);
             },
@@ -66,7 +66,7 @@ function JBCountDown(settings) {
                 ctx.shadowColor = glob.minutesGlow;
                 
                 ctx.arc(94,94,70, deg(0), deg(6*glob.minutes));
-                ctx.lineWidth = 10;
+                ctx.lineWidth = 13;
                 ctx.stroke();
                 $(".clock_minutes .val").text(60 - glob.minutes);
             },
@@ -83,7 +83,7 @@ function JBCountDown(settings) {
                 ctx.shadowColor = glob.secondsGlow;
                 
                 ctx.arc(94,94,70, deg(0), deg(6*glob.seconds));
-                ctx.lineWidth = 10;
+                ctx.lineWidth = 13;
                 ctx.stroke();
         
                 $(".clock_seconds .val").text(60 - glob.seconds);

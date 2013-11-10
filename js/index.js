@@ -23,6 +23,9 @@
 
 	function init() {
 
+		var unix = Math.round(+new Date()/1000);  //unix timestamp for todays date
+        // alert(unix);
+
 		container = document.createElement('div');
 		document.body.appendChild(container);
 
@@ -36,7 +39,7 @@
 		renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
 			
-		for (var i = 0; i < 500; i++) {
+		for (var i = 0; i < 700; i++) {
 
 			particle = new Particle3D( material);
 			particle.position.x = Math.random() * 2000 - 1000;
@@ -59,26 +62,39 @@
 
 		
 		
-	$(document).ready(function(){
+		$(document).ready(function(){
                 JBCountDown({
                     secondsColor : "#ffdc50",
-                    secondsGlow  : "none",
+                    secondsGlow  : "#ff6565",
                     
                     minutesColor : "#9cdb7d",
-                    minutesGlow  : "none",
+                    minutesGlow  : "#378cff",
                     
                     hoursColor   : "#378cff",
-                    hoursGlow    : "none",
+                    hoursGlow    : "#9cdb7d",
                     
                     daysColor    : "#ff6565",
-                    daysGlow     : "none",
+                    daysGlow     : "#ffdc50",
                     
-                    startDate   : "1357034400",
-                    endDate     : "1386496800",
-                    now         : "1382457574"
+                    startDate   : "1384214400",
+                    endDate     : "1387897200",
+                    now         : unix,
+	                seconds     : unix % 60 //unix timestamp for seconds in realtime
                 });
-            });
+            
+			nextTrack();
+			
+        });
+
 		
+	}
+
+	function nextTrack(){
+		var audio = document.getElementById("player");
+		audio.addEventListener("ended", function() {
+		    audio.src = "audio/mayday_freedom.mp3";
+		    audio.play();
+		});
 	}
 	
 	function onDocumentMouseMove( event ) {
